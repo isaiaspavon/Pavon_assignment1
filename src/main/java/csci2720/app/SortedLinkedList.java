@@ -11,7 +11,7 @@ public class SortedLinkedList {
      * Initialize a sorted linked list object
      */
     public SortedLinkedList() {
-        SortedLinkedList list = new SortedLinkedList();
+        head = null;
     } // SortedLinkedList
 
     /**
@@ -19,13 +19,31 @@ public class SortedLinkedList {
      * Must loop over the list and get the number of nodes in the list
      */
     public int getLength() {
+        int length = 0;
+        NodeType temp = head;
 
+        while (temp != null) {
+            temp = temp.next();
+            length++;
+        } // while
+
+        return length;
     } // getLength
 
     /**
      * Item should be inserted to the linked list maintaining the sorted order
      */
     public void insertItem(ItemType item) {
+        // If trying to insert duplicate item
+        if (item == value) {
+            System.out.println("Sorry. You cannot insert the duplicate item");
+        } // if
+
+        // If an empty list
+        if () {
+
+        } // if
+
 
     } // insertItem
 

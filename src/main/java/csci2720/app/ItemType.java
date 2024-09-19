@@ -35,4 +35,5 @@ public class ItemType {
     public void initialize(int num) {
         this.value = num;
     } // initialize
+
 } // ItemType
