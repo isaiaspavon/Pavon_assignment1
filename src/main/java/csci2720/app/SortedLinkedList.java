@@ -20,10 +20,10 @@ public class SortedLinkedList {
      */
     public int getLength() {
         int length = 0;
-        NodeType temp = head;
+        NodeType curr = head;
 
-        while (temp != null) {
-            temp = temp.next();
+        while (curr != null) {
+            curr = curr.next();
             length++;
         } // while
 
@@ -34,24 +34,54 @@ public class SortedLinkedList {
      * Item should be inserted to the linked list maintaining the sorted order
      */
     public void insertItem(ItemType item) {
-        // If trying to insert duplicate item
-        if (item == value) {
-            System.out.println("Sorry. You cannot insert the duplicate item");
+        NodeType insertedNode = new NodeType(item);
+        //insertedNode.info = item;
+        insertedNode.next = null;
+
+        if (head == null || head.info.compareTo(item) > 0) {
+            insertedNode.next = head;
+            head = insertedNode;
+        } else {
+            NodeType curr = head;
+
+            while (curr != null && curr.next.info.compareTo(item) < 0) {
+                curr = curr.next;
+            } // while
+
+            if (curr != null && curr.next.info.compareTo(item) == 0) {
+                System.out.println("Sorry. You cannot insert the duplicate item");
+                return;
+            } // if
+
+            insertedNode.next = curr.next;
+            curr.next = insertedNode;
         } // if
-
-        // If an empty list
-        if () {
-
-        } // if
-
-
     } // insertItem
 
     /**
      *
      */
     public void deleteItem(ItemType item) {
+        if (head == null) {
+            System.out.println("Sorry. You cannot delete from an empty list");
+        } // if
 
+        NodeType sentinel = new NodeType();
+        sentinel.next = head;
+
+        NodeType curr = sentinel;
+
+        while (curr.next != null && curr.next.info.compareTo(item) != 0) {
+            curr = curr.next;
+        } // while
+
+        if (curr.next == null) {
+            System.out.println("Sorry. The item is not in the list");
+        } else {
+            curr.next = curr.next.next;
+        } // if
+
+        head = sentinel.next;
     } // deleteItem
 
     /**
@@ -59,7 +89,19 @@ public class SortedLinkedList {
      *
      */
     public int searchItem(ItemType item) {
+        NodeType curr = head;
+        int pos = 1;
 
+        while (curr != null) {
+            if (curr.info.compareTo(item) == 0) {
+                return pos;
+            } // if
+
+            curr = curr.next;
+            pos++;
+        } // while
+
+        return -1;
     } // searchItem
 
     /* -------------------------------------------------------------------------*/
