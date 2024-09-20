@@ -112,22 +112,50 @@ public class SortedLinkedList {
     /**
      *
      */
-    public void mergeList() {
+    public void mergeList(SortedLinkedList listToMerge) {
+        NodeType nodeToMerge = listToMerge.head;
 
+        while (nodeToMerge != null) {
+            ItemType newItem = nodeToMerge.info;
+            if (searchItem(newItem) == -1) {
+                insertItem(newItem);
+            } // if
+
+            nodeToMerge = nodeToMerge.next;
+        } // while
     } // mergeList
 
     /**
      *
      */
     public void deleteAltNodes() {
+        if (head == null || head.next == null) {
+            return;
+        } // if
 
+        NodeType curr = head;
+        while (curr != null && curr.next != null) {
+            curr.next = curr.next.next;
+            curr = curr.next;
+        } // while
     } // deleteAltNodes
 
     /**
      *
      */
-    public void intersection() {
+    public SortedLinkedList intersection(SortedLinkedList otherList) {
+        SortedLinkedList result = new SortedLinkedList();
+        NodeType curr = head;
 
+        while (curr != null) {
+            if (otherList.searchItem(curr.info) != -1) {
+                result.insertItem(curr.info);
+            } // if
+
+            curr = curr.next;
+        } // while
+
+        return result;
     } // intersection
 
 } // SortedLinkedList
