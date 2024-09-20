@@ -31,7 +31,8 @@ public class SortedLinkedList {
     } // getLength
 
     /**
-     * Item should be inserted to the linked list maintaining the sorted order
+     * Item should be inserted to the linked list maintaining the sorted order.
+     * @param item The item to be inserted into the linked list
      */
     public void insertItem(ItemType item) {
         NodeType insertedNode = new NodeType(item);
@@ -59,7 +60,8 @@ public class SortedLinkedList {
     } // insertItem
 
     /**
-     *
+     * Deletes an item from the list if it exists.
+     * @param item The item to be deleted from the list
      */
     public void deleteItem(ItemType item) {
         if (head == null) {
@@ -85,8 +87,9 @@ public class SortedLinkedList {
     } // deleteItem
 
     /**
-     *
-     *
+     * Searches for an item in the linked list and returns its position.
+     * @param item The item to search for in the linked list.
+     * @return The 1-based position of the item in the list, or -1 if not found.
      */
     public int searchItem(ItemType item) {
         NodeType curr = head;
@@ -110,7 +113,8 @@ public class SortedLinkedList {
     /* -------------------------------------------------------------------------*/
 
     /**
-     *
+     * Merges another sorted list into the current list.
+     * @param listToMerge The sorted list to merge into current list.
      */
     public void mergeList(SortedLinkedList listToMerge) {
         NodeType nodeToMerge = listToMerge.head;
@@ -126,7 +130,8 @@ public class SortedLinkedList {
     } // mergeList
 
     /**
-     *
+     * Deletes every alternate node in the list.
+     * If the list is empty or contains one node the method does nothing.
      */
     public void deleteAltNodes() {
         if (head == null || head.next == null) {
@@ -141,21 +146,24 @@ public class SortedLinkedList {
     } // deleteAltNodes
 
     /**
+     * Returns a new list containing the intersection of the current and another list
      *
+     * @param listToCompare The list to compare and find common elements
+     * @return a new sorted list
      */
-    public SortedLinkedList intersection(SortedLinkedList otherList) {
-        SortedLinkedList result = new SortedLinkedList();
+    public SortedLinkedList intersection(SortedLinkedList listToCompare) {
+        SortedLinkedList intersected = new SortedLinkedList();
         NodeType curr = head;
 
         while (curr != null) {
-            if (otherList.searchItem(curr.info) != -1) {
-                result.insertItem(curr.info);
+            if (listToCompare.searchItem(curr.info) != -1) {
+                intersected.insertItem(curr.info);
             } // if
 
             curr = curr.next;
         } // while
 
-        return result;
+        return intersected;
     } // intersection
 
 } // SortedLinkedList

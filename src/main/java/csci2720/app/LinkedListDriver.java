@@ -1,44 +1,31 @@
 package csci2720.app;
 
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+/**
+ *
+ *
+ */
 public class LinkedListDriver {
 
     public static void main(String[] args) {
 
-        boolean quit = false;
+        if (args.length != 1) {
+            System.out.println("Error in Format: java sortedLinkedList.LinkedListDriver <file>");
+            return;
+        } // if
 
-        switch(!quit) {
-        case 'i':
-            System.out.println("");
-            continue;
-        case 'd':
-            System.out.println("");
-            continue;
-        case 's':
-            System.out.println("");
-            continue;
+        String filePath = args[0];
+        SortedLinkedList list = new SortedLinkedList();
 
-        case 'a':
-            System.out.println("");
-            continue;
-        case 'm':
-            System.out.println("");
-            continue;
-        case 't':
-            System.out.println("");
-            continue;
-        case 'p':
-            System.out.println("");
-            continue;
-        case 'l':
-            System.out.println("");
-            continue;
-        case'q':
-            System.out.println("");
-            break;
-        default:
-            System.out.println("Invalid command, try again!");
-        } // switch
+        try {
 
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Error: Unable to open the file " + filePath);
+            return;
+        } // try
 
     } // main
 
