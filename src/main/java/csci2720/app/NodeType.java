@@ -12,9 +12,9 @@ public class NodeType {
      * Constructor for the NodeType class.
      * Initializes the next and info variables.
      */
-    public NodeType () {
-        info = null;
-        next = null;
+    public NodeType (ItemType item) {
+        this.info = item;
+        this.next = null;
     } // NodeType
 
 } // NodeType

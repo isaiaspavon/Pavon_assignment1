@@ -6,7 +6,6 @@ package csci2720.app;
 public class SortedLinkedList {
 
     private NodeType head;
-
     /**
      * Initialize a sorted linked list object
      */
@@ -23,7 +22,7 @@ public class SortedLinkedList {
         NodeType curr = head;
 
         while (curr != null) {
-            curr = curr.next();
+            curr = curr.next;
             length++;
         } // while
 
@@ -45,11 +44,11 @@ public class SortedLinkedList {
         } else {
             NodeType curr = head;
 
-            while (curr != null && curr.next.info.compareTo(item) < 0) {
+            while (curr.next != null && curr.next.info.compareTo(item) < 0) {
                 curr = curr.next;
             } // while
 
-            if (curr != null && curr.next.info.compareTo(item) == 0) {
+            if (curr.next != null && curr.next.info.compareTo(item) == 0) {
                 System.out.println("Sorry. You cannot insert the duplicate item");
                 return;
             } // if
@@ -65,10 +64,10 @@ public class SortedLinkedList {
      */
     public void deleteItem(ItemType item) {
         if (head == null) {
-            System.out.println("Sorry. You cannot delete from an empty list");
+            System.out.println("You cannot delete from an empty list");
         } // if
 
-        NodeType sentinel = new NodeType();
+        NodeType sentinel = new NodeType(null);
         sentinel.next = head;
 
         NodeType curr = sentinel;
@@ -78,7 +77,7 @@ public class SortedLinkedList {
         } // while
 
         if (curr.next == null) {
-            System.out.println("Sorry. The item is not in the list");
+            System.out.println("The item is not present in the list");
         } else {
             curr.next = curr.next.next;
         } // if
@@ -92,11 +91,12 @@ public class SortedLinkedList {
      * @return The 1-based position of the item in the list, or -1 if not found.
      */
     public int searchItem(ItemType item) {
-        NodeType curr = head;
+        NodeType curr = this.head;
         int pos = 1;
 
         while (curr != null) {
             if (curr.info.compareTo(item) == 0) {
+                System.out.println("The item is present at index " + pos);
                 return pos;
             } // if
 
@@ -104,8 +104,34 @@ public class SortedLinkedList {
             pos++;
         } // while
 
+        System.out.println("Item is not present in the list.");
         return -1;
     } // searchItem
+
+    /**
+     * Prints the list
+     */
+    public void printList() {
+        if (this.head == null) {
+            System.out.print(" ");
+        } // if
+
+        NodeType current = this.head;
+        while (current != null) {
+            System.out.print(current.info.getValue() + " ");
+            current = current.next;
+        } // while
+        System.out.println("");
+    } // printList
+
+    private boolean printMess = true;
+
+    /**
+     * Handles preventing messages being printed
+     */
+    public void printMessages(boolean shouldPrint) {
+        this.printMess = shouldPrint;
+    } // printMessages
 
     /* -------------------------------------------------------------------------*/
     /* Next three methods below must be implemented to follow the sample output */
@@ -151,19 +177,29 @@ public class SortedLinkedList {
      * @param listToCompare The list to compare and find common elements
      * @return a new sorted list
      */
-    public SortedLinkedList intersection(SortedLinkedList listToCompare) {
-        SortedLinkedList intersected = new SortedLinkedList();
-        NodeType curr = head;
+    public void intersection(SortedLinkedList list2) {
+        NodeType head1 = this.head;
+        NodeType head2 = list2.head;
 
-        while (curr != null) {
-            if (listToCompare.searchItem(curr.info) != -1) {
-                intersected.insertItem(curr.info);
+        SortedLinkedList intersectionList = new SortedLinkedList();
+
+        // transverse both lists until one of them reaches the end
+        while (head1 != null && head2 != null) {
+            int comparison = head1.info.compareTo(head2.info);
+
+            // if nodes are equal, adds the value to the intersection list
+            if (comparison == 0) {
+                intersectionList.insertItem(head1.info);
+                head1 = head1.next;
+                head2 = head2.next;
+            } else if (comparison < 0) { // if head1's value is smaller, moves head1 to next node
+                head1 = head1.next;
+            } else { // if head2's value is smaller, moves head2 to next node
+                head2 = head2.next;
             } // if
-
-            curr = curr.next;
         } // while
 
-        return intersected;
+        intersectionList.printList();
     } // intersection
 
 } // SortedLinkedList

@@ -1,0 +1,59 @@
+[33mcommit d049f77eacedc558dff8252fd9716cfcea8474b5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Fri Sep 20 19:43:46 2024 -0400
+
+    Completed SortedList
+
+[33mcommit 297a5fea230971fe61e9bde3d892c21f1cbf28c2[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Fri Sep 20 14:58:38 2024 -0400
+
+    Revise all methods in SortedLinkedList.java
+
+[33mcommit 55cbf904a8b24fda38b6bad9423db63651d4608e[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Fri Sep 20 01:18:06 2024 -0400
+
+    Created Delete, Insert, and Search
+
+[33mcommit ebecd6c53460037ec9c21e4764da43870c33e1c7[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Thu Sep 19 13:59:01 2024 -0400
+
+    TODO insertItem
+
+[33mcommit 21c255476e5d63fef2cfb6dfc6978fdee0d61a9a[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Thu Sep 19 09:49:03 2024 -0400
+
+    Updated README
+
+[33mcommit de2097671b829ada2460bcc9dcc03bdba9cd317d[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Wed Sep 18 20:24:37 2024 -0400
+
+    Started SortedLinkedList.java
+
+[33mcommit df7e6ebd0a2b3137261ee3b690417e8e34915169[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Wed Sep 18 20:06:29 2024 -0400
+
+    Finished ItemType.java
+
+[33mcommit 38aa0ad1218cec41d4540bac889f2d88a6c4e742[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Wed Sep 18 19:39:49 2024 -0400
+
+    Project files created
+
+[33mcommit 0f809f002f7f67c4aff35a17591cf9ad33affaf0[m
+Author: Isaias Pavon <ip13488@uga.edu>
+Date:   Mon Sep 16 15:19:12 2024 -0400
+
+    Maven and initial files created
+
+[33mcommit c7be8a89a2036092152a334762a10a1f67cf4ae0[m
+Author: Isaias Pavon <161888697+isaiaspavon@users.noreply.github.com>
+Date:   Mon Sep 16 10:43:04 2024 -0400
+
+    Create README.md
